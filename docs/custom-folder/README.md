@@ -45,3 +45,12 @@ map***bf_latitude***bf_longitude*** *** *** *** *** ***0***
 liste***ListeProjects***Type de projet*** *** *** *** *** ***0*** *** *** % *** % *** *** *** ***
 checkbox***ListeParams***Paramètre d'affichage*** *** *** ***bf_display_params*** ***0*** *** *** % *** % *** *** *** ***
 ```
+## Import user
+When you have a large number of users to import, it may be easier to add them to the database (via phpmyadmin, for example) with a query such as
+« insert into wiki_labo_sauvegarde2savoie.labo_sauvegarde2savoieusers
+(email, name, password, motto, signuptime)
+values
+(‹ test@test.fr ›,‹ camille1 ›,’$2y$13$bjOxSBwbH7Ro15pF32nSeep5GldY9LB9XHg9xIkq3Pw6/RNA.hiSC’,’’,‹ 2023-07-11 13:07:15 ›) »
+
+Although passwords are stored in bcrypt, it is possible (and simpler) to generate them in MD5 (possibly through an online generator such as https://www.md5hashgenerator.com/). And for the user, when he logs in for the first time, the password will be automatically updated in bcrypt.
+
